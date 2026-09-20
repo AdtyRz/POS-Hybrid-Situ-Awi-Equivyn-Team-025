@@ -11,7 +11,6 @@ class SituAwiDummy extends Seeder
 {
     public function run(): void
     {
-        // 1. Seed Users (Role disesuaikan ke huruf kecil sesuai ENUM)
         DB::table('users')->insert([
             [
                 'name' => 'Admin Utama',
@@ -55,7 +54,6 @@ class SituAwiDummy extends Seeder
             ],
         ]);
 
-        // 2. Seed Meja Makan (Diselaraskan dengan kolom nomor_meja, kode_qr_token, lokasi_area, status_meja)
         $mejas = [
             ['nomor_meja' => 'LB-01', 'lokasi_area' => 'Lesehan Bawah'],
             ['nomor_meja' => 'LB-02', 'lokasi_area' => 'Lesehan Bawah'],
@@ -82,7 +80,6 @@ class SituAwiDummy extends Seeder
             ]);
         }
 
-        // 3. Seed Kategori (Diselaraskan ke target_kds: dapur/bar)
         $kategoriMakananId = DB::table('kategori')->insertGetId([
             'nama_kategori' => 'Makanan',
             'target_kds' => 'dapur',
@@ -97,7 +94,6 @@ class SituAwiDummy extends Seeder
             'updated_at' => now(),
         ]);
 
-        // 4. Seed Menu Makanan (Diselaraskan dengan stok_menu & status_tersedia)
         $makanan = [
             ['nama_menu' => 'Paket Nasi Liwet 5 Orang', 'harga' => 150000],
             ['nama_menu' => 'Paket Nasi Liwet 5 Orang Plus Karedok', 'harga' => 175000],
@@ -145,7 +141,6 @@ class SituAwiDummy extends Seeder
             ]);
         }
 
-        // 5. Seed Menu Minuman
         $minuman = [
             ['nama_menu' => 'Vietnam Drip Arabica Coffee', 'harga' => 10000],
             ['nama_menu' => 'Vietnam Drip Robusta Coffee', 'harga' => 8000],
