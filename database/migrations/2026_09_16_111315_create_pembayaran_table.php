@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pesanan_id')->constrained('pesanan')->onDelete('cascade');
-            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null'); // ID Kasir
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
             $table->enum('metode_pembayaran', ['tunai', 'qris', 'debit', 'kredit']);
             $table->string('snap_token')->nullable();
             $table->string('status_pembayaran')->default('pending');
